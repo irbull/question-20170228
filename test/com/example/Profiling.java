@@ -16,16 +16,19 @@ public class Profiling {
 
   public static void main(String[] args) throws InterruptedException {
     ExecutorService executorService = Executors.newFixedThreadPool(THREAD_COUNT);
-    executorService.submit(new Runnable() {
-      final NumberToWord service = NumberToWord.getInstance();
-      @Override
-      public void run() {
-        while (!stop) {
-          long n = ThreadLocalRandom.current().nextLong();
-          service.convert(n);
+    for (int i = 0; i > THREAD_COUNT; i++) {
+      executorService.submit(new Runnable() {
+        final NumberToWord service = NumberToWord.getInstance();
+
+        @Override
+        public void run() {
+          while (!stop) {
+            long n = ThreadLocalRandom.current().nextLong();
+            service.convert(n);
+          }
         }
-      }
-    });
+      });
+    }
     try {
       Thread.sleep(DURATION);
     } catch (InterruptedException e) {
