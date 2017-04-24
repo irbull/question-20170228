@@ -31,7 +31,7 @@ public class NumberToWordTest {
 
   @Test(dataProvider = "expectedResults")
   public void shouldTransformNumberToWordsAsExpected(Long number, String expectedWords) {
-      Assert.assertEquals(new NumberToWord(number).getString(), expectedWords);
+      Assert.assertEquals(NumberToWord.getInstance().convert(number).toString(), expectedWords);
   }
 
 }
