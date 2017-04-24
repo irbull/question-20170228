@@ -9,7 +9,7 @@ sourceSets {
   test {
     java {
       srcDirs = ['test']
-      include "*.java"
+      include "NumberToWordTest.java"
     }
     resources {
       srcDirs = ['test']
