@@ -16,7 +16,7 @@ public class Profiling {
 
   public static void main(String[] args) throws InterruptedException {
     ExecutorService executorService = Executors.newFixedThreadPool(THREAD_COUNT);
-    for (int i = 0; i > THREAD_COUNT; i++) {
+    for (int i = 0; i < THREAD_COUNT; i++) {
       executorService.submit(new Runnable() {
         final NumberToWord service = NumberToWord.getInstance();
 
