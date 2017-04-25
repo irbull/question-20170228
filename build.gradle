@@ -6,14 +6,15 @@ sourceSets {
       srcDirs = ['src']
     }
   }
+
   test {
     java {
       srcDirs = ['test']
-      include "NumberToWordTest.java"
+      include '**/*.java'
     }
     resources {
       srcDirs = ['test']
-      include "*.txt"
+      include '*.txt'
     }
   }
 }
